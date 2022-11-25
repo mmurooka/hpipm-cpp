@@ -44,4 +44,17 @@ jobs:
           set -e
           set -x
           cd ${GITHUB_WORKSPACE}/hpipm-cpp/build
-          ctest --output-on-failure -j
+          ctest
+      - name: Build examples
+        run: |
+          set -e
+          set -x
+          cd ${GITHUB_WORKSPACE}/hpipm-cpp/examples
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_BUILD_TYPE=${{ matrix.build-type }}
+          make -j4
+      - name: Run examples
+        run: |
+          ${GITHUB_WORKSPACE}/hpipm-cpp/examples/build/example_mpc
+          ${GITHUB_WORKSPACE}/hpipm-cpp/examples/build/example_mpc/example_ocp_qp
