@@ -40,8 +40,8 @@ target_link_libraries(
   PUBLIC
   $<BUILD_INTERFACE:${BLASFEO_INSTALL_PATH}/lib/libblasfeo.so>
   $<BUILD_INTERFACE:${HPIPM_INSTALL_PATH}/lib/libhpipm.so>
-  $<INSTALL_INTERFACE:${CMAKE_INSTALL_RPATH}/hpipm-cpp/libblasfeo.so>
-  $<INSTALL_INTERFACE:${CMAKE_INSTALL_RPATH}/hpipm-cpp/libhpipm.so>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_RPATH}/libblasfeo.so>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_RPATH}/libhpipm.so>
 )
 target_include_directories(
   ${PROJECT_NAME} 
@@ -95,7 +95,7 @@ include(GNUInstallDirs)
 # Install lib files
 install(
   FILES ${BLASFEO_INSTALL_PATH}/lib/libblasfeo.so ${HPIPM_INSTALL_PATH}/lib/libhpipm.so
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME}
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 install(
   TARGETS ${PROJECT_NAME}  

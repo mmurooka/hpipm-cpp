@@ -36,7 +36,7 @@ jobs:
           cd ${GITHUB_WORKSPACE}/hpipm-cpp
           mkdir build
           cd build
-          cmake .. -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} -DBUILD_TESTS=ON
+          cmake .. -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS=ON
           make -j4
           sudo make install
       - name: Test
